@@ -1,0 +1,94 @@
+<nz-layout class="app-layout">
+    <!-- 顶部位置布局 -->
+    <nz-header>
+        <div class="app-header">
+            <span>这里是标题,就先空着吧</span>
+        </div>
+    </nz-header>
+    <!-- 中间区域布局 -->
+    <nz-layout>
+        <!-- 侧边菜单 -->
+        <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+            <div class="sidebar-logo">
+                <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+                    <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+                </span>
+                <h1>我的笔记</h1>
+            </div>
+            <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+                <li nz-submenu [nzOpen]="subMenu.sub1" nzTitle="练习类" nzIcon="database" (nzOpenChange)="openChange('sub1')">
+                    <ul>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/default/practice/excel">子标题一</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/default/practice/list">子标题二</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题三</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu [nzOpen]="subMenu.sub2" nzTitle="工具类" nzIcon="tool" (nzOpenChange)="openChange('sub2')">
+                    <ul>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题一</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题二</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题三</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu [nzOpen]="subMenu.sub3" nzTitle="记录类" nzIcon="edit" (nzOpenChange)="openChange('sub3')">
+                    <ul>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题一</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题二</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题三</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu [nzOpen]="subMenu.sub4" nzTitle="灵感类" nzIcon="bulb" (nzOpenChange)="openChange('sub4')">
+                    <ul>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题一</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题二</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题三</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu [nzOpen]="subMenu.sub5" nzTitle="其他类" nzIcon="more" (nzOpenChange)="openChange('sub5')">
+                    <ul>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题一</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题二</a>
+                        </li>
+                        <li nz-menu-item nzMatchRouter>
+                            <a routerLink="/welcome">子标题三</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nz-sider>
+        <!-- 内容区域 -->
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+    </nz-layout>
+</nz-layout>
